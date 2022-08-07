@@ -21,11 +21,8 @@ variable "exclude_cidr" {
 }
 
 locals {
-  subnet     = split("/", var.cidr)[0]
-  masklength = tonumber(split("/", var.cidr)[1])
-  hostbits   = 32 - local.masklength
-  newbits    = var.mask_depth - local.masklength
-  range      = range(1, local.newbits + 1)
-  cidr       = [var.cidr]
+  masklength   = tonumber(split("/", var.cidr)[1])
+  newbits      = var.mask_depth - local.masklength
+  newbit_range = range(1, local.newbits + 1)
 }
 

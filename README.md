@@ -56,7 +56,7 @@ The following variables are optional:
 
 key | default | value 
 :---|:---|:---
-depth | 30 | The depth to which subnets need to be generated.
+mask_depth | 30 | The depth to which subnets need to be generated.
 exclude_cidr | false | Toggle exclusion of original CIDR in cidrlist output.
 
 ### Outputs
