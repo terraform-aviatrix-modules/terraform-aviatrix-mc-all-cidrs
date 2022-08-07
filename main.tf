@@ -20,5 +20,10 @@ resource "null_resource" "validation" {
       condition     = local.newbits <= 10
       error_message = "Difference between CIDR length and depth cannot be more than 10 bits."
     }
+
+    precondition {
+      condition     = var.mask_depth > local.masklength
+      error_message = "Depth needs to be greater than the CIDR's masklength."
+    }
   }
 }
